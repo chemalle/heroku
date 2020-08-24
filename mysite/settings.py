@@ -27,7 +27,8 @@ BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = config('SECRET_KEY')
+#SECRET_KEY = config('SECRET_KEY')
+SECRET_KEY = 'e(&7pm)0yr@rh4ld1%b*==ra5ugd=y0a5#)+v2@g(&)!-g3pdp'
 
 
 
@@ -86,11 +87,15 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+
     }
 }
 
+DATABASES['default'] = dj_database_url.config(default='postgres://mgqefekcwwcyco:218d026ec85ec24e9bcf80d78954de0e2847840d945dc74e369400b879df72a7@ec2-34-238-26-109.compute-1.amazonaws.com:5432/dbabaea3h3fm23')
+
+db_from_env = dj_database_url.config(conn_max_age=600)
+DATABASES['default'].update(db_from_env)
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
