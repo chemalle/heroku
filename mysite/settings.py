@@ -33,7 +33,7 @@ SECRET_KEY = 'e(&7pm)0yr@rh4ld1%b*==ra5ugd=y0a5#)+v2@g(&)!-g3pdp'
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = []
 
